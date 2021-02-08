@@ -17,10 +17,12 @@
 	</c:if>
 	
 	<table width="1000">
+		<!-- top -->
 		<tr height="80" align="center">
 			<td align="center" colspan="2"><jsp:include page="Top.jsp"/></td>
 		</tr>
 		
+		<!-- center -->
 		<tr height="470" align="center" valign="top">
 			<c:if test="${left==null}">
 				<td align="center">
@@ -31,7 +33,15 @@
 				<td align="center" width="200">
 					<jsp:include page="${left}"/>
 				</td>
+				<td align="center" width="800">
+					<jsp:include page="${center}"/>
+				</td>
 			</c:if>
+		</tr>
+		
+		<!-- bottom -->
+		<tr height="80" align="center">
+			<td align="center" colspan="2"><jsp:include page="Bottom.jsp"/></td>
 		</tr>
 	</table>
 </center>
