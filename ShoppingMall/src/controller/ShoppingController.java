@@ -26,4 +26,18 @@ public class ShoppingController {
 		
 		return mav;
 	}
+	
+	@RequestMapping("/sujak.do")
+	public ModelAndView sujak(String num){
+		
+		ModelAndView mav = new ModelAndView();
+
+		if(num==null){
+			
+		} else {
+			
+		}
+		
+		return mav;
+	}
 }

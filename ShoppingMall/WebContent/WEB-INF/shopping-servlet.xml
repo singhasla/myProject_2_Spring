@@ -7,10 +7,27 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<bean id="index" name="/index.do" class="controller.ShoppingController"></bean>
+	<bean id="sujak" name="/sujak.do" class="controller.ShoppingController" p:dataSource-ref="shoppingDao"></bean>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 
+	<bean id="shoppingDao" class="model.ShoppingDAO" p:dataSource-ref="dataSource"/>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/my</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>1234</value>
+		</property>
+	</bean>
 </beans>
