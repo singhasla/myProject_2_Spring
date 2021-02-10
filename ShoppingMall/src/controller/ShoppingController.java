@@ -56,4 +56,19 @@ public class ShoppingController {
 		
 		return mav;
 	}
+	
+	@RequestMapping("/suinfo.do")
+	public ModelAndView suinfo(int suno){
+		
+		SuBean sbean = shoppingDao.getOneSutool(suno);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("sbean", sbean);
+		mav.addObject("center","SujakInfo.jsp");
+		mav.addObject("left","SujakLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		
+		return mav;
+	}
 }
