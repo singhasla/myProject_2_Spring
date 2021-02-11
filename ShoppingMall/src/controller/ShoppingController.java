@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import model.MemberBean;
 import model.ShoppingDAO;
@@ -33,6 +34,51 @@ public class ShoppingController {
 		} else {
 			mav.addObject("mbean",mbean);
 			mav.setViewName("ShoppingMain");
+		}
+		
+		return mav;
+	}
+	
+	@RequestMapping("/joinform.do")
+	public ModelAndView joinForm(){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("center","JoinForm.jsp");
+		mav.addObject("left","SujakLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		
+		return mav;
+	}
+	
+	@RequestMapping("/joinproc.do")
+	public ModelAndView joinProc(MemberBean mbean, HttpSession session){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		int result = shoppingDao.getLogin(mbean);
+		
+		if(result==1){//아이디 중복일 경우
+			mav.addObject("result","1");
+			mav.addObject("center","JoinForm.jsp");
+			mav.addObject("left","SujakLeft.jsp");
+			mav.setViewName("ShoppingMain");
+			
+		} else {//아이디 중복하지 않을 경우
+			//비밀번호 두개 일치할 경우
+			if(mbean.getMempasswd1().equals(mbean.getMempasswd2())){
+				shoppingDao.insertMember(mbean);
+				session.setAttribute("mbean", mbean);
+				session.setMaxInactiveInterval(60*30);//세션유지 30분
+				
+				return new ModelAndView(new RedirectView("index.do"));
+			
+			} else {////비밀번호 두개 일치하지 않을 경우
+				mav.addObject("result","2");
+				mav.addObject("center","JoinForm.jsp");
+				mav.addObject("left","SujakLeft.jsp");
+				mav.setViewName("ShoppingMain");
+			}
 		}
 		
 		return mav;

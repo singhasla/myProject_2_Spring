@@ -6,6 +6,9 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.SqlParameter;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 public class ShoppingDAO {
@@ -48,6 +51,25 @@ public class ShoppingDAO {
 		RowMapper<SuBean> rm = new BeanPropertyRowMapper<SuBean>(SuBean.class);
 		
 		return template.queryForObject(sql, rm, suno);
+	}
+
+	//로그인시 아이디 중복체크
+	public int getLogin(MemberBean mbean) {
+		
+		String sql = "SELECT count(*) FROM member WHERE memid=?";
+		
+		return template.queryForInt(sql, mbean.getMemid());
+
+	}
+
+	//회원가입
+	public void insertMember(MemberBean mbean) {
+
+		String sql = "INSERT INTO member VALUES (:memid, :mempasswd1, :mempasswd2, :memname, :memphone, :memdate)";
+		
+		SqlParameterSource sqlsource = new BeanPropertySqlParameterSource(mbean);
+		
+		template.update(sql, sqlsource);
 	}
 	
 }
