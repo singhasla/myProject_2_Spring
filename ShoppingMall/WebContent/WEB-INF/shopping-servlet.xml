@@ -10,6 +10,10 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<bean id="sujak" name="/sujak.do" class="controller.ShoppingController" 
 			p:shoppingDao-ref="shoppingDao"></bean>
 	<bean id="suinfo" name="/suinfo.do" class="controller.ShoppingController" 
+			p:shoppingDao-ref="shoppingDao"></bean>
+	<bean id="sutoolcart" name="/sutoolcart.do" class="controller.ShoppingController" 
+			p:shoppingDao-ref="shoppingDao"></bean>
+	<bean id="sucartdel" name="/sucartdel.do" class="controller.ShoppingController" 
 			p:shoppingDao-ref="shoppingDao"></bean>		
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import model.MemberBean;
 import model.ShoppingDAO;
 import model.SuBean;
+import model.SuCartBean;
 
 public class ShoppingController {
 
@@ -66,6 +67,45 @@ public class ShoppingController {
 		
 		mav.addObject("sbean", sbean);
 		mav.addObject("center","SujakInfo.jsp");
+		mav.addObject("left","SujakLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		
+		return mav;
+	}
+	
+	@RequestMapping("/sutoolcart.do")
+	public ModelAndView sutoolCart(SuCartBean cartbean, HttpSession session){
+		
+		Cart cart = (Cart)session.getAttribute("cart");
+		
+		if(cart==null){
+			cart = new Cart();
+			session.setAttribute("cart", cart);
+		}
+		
+		cart.push(cartbean);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("msg", cartbean.getSuname() + "의 상품 " 
+							+ cartbean.getSuqty() + "개를 카트에 추가했습니다.");
+		mav.addObject("center","SuCartResult.jsp");
+		mav.addObject("left","SujakLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		
+		return mav;
+	}
+	
+	@RequestMapping("/sucartdel.do")
+	public ModelAndView sucartDel(int suno, HttpSession session){
+		
+		Cart cart = (Cart)session.getAttribute("cart");
+		
+		cart.deleteCart(suno);
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("cart",cart);
+		mav.addObject("center","SuCartResult.jsp");
 		mav.addObject("left","SujakLeft.jsp");
 		mav.setViewName("ShoppingMain");
 		

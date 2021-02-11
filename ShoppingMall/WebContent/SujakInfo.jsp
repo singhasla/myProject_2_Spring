@@ -3,6 +3,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+<script type="text/javascript">
+	function cart() {
+		var qtyid = document.getElementById("qtyid").value;
+		var sunoid = document.getElementById("sunoid").value;
+		var suimgid = document.getElementById("suimgid").value;
+		var supriceid = document.getElementById("supriceid").value;
+		var sunameid = document.getElementById("sunameid").value;
+
+		var url = "sutoolcart.do?suno="+sunoid
+								+"&suimg="+suimgid
+								+"&suprice="+supriceid
+								+"&suname="+sunameid
+								+"&suqty="+qtyid;
+		location.href=url;
+	}
+</script>
+
 <body bgcolor="white">
 	<center>
 		<h2><font color="yellow">수작업 공구 구매</font></h2>
@@ -50,7 +68,7 @@
 						<input type="hidden" name="suname" id="sunameid" value="${sbean.suname}">
 						
 						<input type="button" onclick="location.href='sujak.do'" value="목록보기">
-						<input type="hidden" onclick="cart()" value="카트담기">
+						<input type="button" onclick="cart()" value="카트담기">
 						<input type="submit" value="구매하기">
 					</td>
 				</tr>
