@@ -84,6 +84,51 @@ public class ShoppingController {
 		return mav;
 	}
 	
+	@RequestMapping("/login.do")
+	public ModelAndView login(){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("center","LoginForm.jsp");
+		mav.addObject("left","SujakLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		
+		return mav;
+	}
+	
+	@RequestMapping("/loginproc.do")
+	public ModelAndView loginProc(MemberBean mbean, HttpSession session){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		int result = shoppingDao.getLoginProc(mbean);
+		
+		if(result == 1){//회원이 존재할 경우
+			session.setAttribute("mbean", mbean);
+			session.setMaxInactiveInterval(60*30);//세션유지 30분
+			
+			return new ModelAndView(new RedirectView("index.do"));
+		
+		} else {//로그인 할 수 없다면 LoginForm.jsp페이지로 이동해서 1전달
+			mav.addObject("login","1");
+			mav.addObject("center","LoginForm.jsp");
+			mav.addObject("left","SujakLeft.jsp");
+			mav.setViewName("ShoppingMain");
+			return mav;
+		}
+	}
+	
+	@RequestMapping("/logout.do")
+	public ModelAndView logout(HttpSession session){
+		
+		MemberBean mbean = (MemberBean)session.getAttribute("mbean");
+		
+		//session.invalidate();
+		session.setAttribute("mbean", null);
+		
+		return new ModelAndView(new RedirectView("index.do"));
+	}
+	
 	@RequestMapping("/sujak.do")
 	public ModelAndView sujak(String num){
 		

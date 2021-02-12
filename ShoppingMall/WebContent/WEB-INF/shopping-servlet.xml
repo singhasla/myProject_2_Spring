@@ -18,7 +18,13 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<bean id="joinform" name="/joinform.do" class="controller.ShoppingController" 
 			p:shoppingDao-ref="shoppingDao"></bean>
 	<bean id="joinproc" name="/joinproc.do" class="controller.ShoppingController" 
-			p:shoppingDao-ref="shoppingDao"></bean>		
+			p:shoppingDao-ref="shoppingDao"></bean>
+	<bean id="login" name="/login.do" class="controller.ShoppingController" 
+			p:shoppingDao-ref="shoppingDao"></bean>
+	<bean id="loginproc" name="/loginproc.do" class="controller.ShoppingController" 
+			p:shoppingDao-ref="shoppingDao"></bean>
+	<bean id="logout" name="/logout.do" class="controller.ShoppingController" 
+			p:shoppingDao-ref="shoppingDao"></bean>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

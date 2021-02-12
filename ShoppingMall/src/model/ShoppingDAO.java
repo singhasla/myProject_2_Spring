@@ -71,5 +71,14 @@ public class ShoppingDAO {
 		
 		template.update(sql, sqlsource);
 	}
+
+	//로그인처리
+	public int getLoginProc(MemberBean mbean) {
+		
+		String sql = "SELECT count(*) FROM member WHERE memid=? AND mempasswd1=?";
+		
+		return template.queryForInt(sql, mbean.getMemid(), mbean.getMempasswd1());
+
+	}
 	
 }
