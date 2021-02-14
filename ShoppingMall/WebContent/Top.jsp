@@ -39,7 +39,7 @@
 				</a>
 			</td>
 			<td align="center" bgcolor="black">
-				<a href="jundong.do"><!-- 전동공구 -->
+				<a href="#"><!-- 전동공구(jundong.do) -->
 					<img src="img/jundong.JPG">
 				</a>
 			</td>
