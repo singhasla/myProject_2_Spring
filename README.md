@@ -5,19 +5,20 @@
    - OpenOffice(공유오피스)는 근무환경이 적합하지 않은 이용자들에게 원활한 업무를 제공할 수 있도록<br>
    입주신청을 할 수 있는 웹사이트입니다.
       
-  - 기술스택 :
-  + Language :
-    * Java
-    * JSP
-    * Javascript
-    * Jquery
-  + Tool : 
-    * Eclipse-jee-mars
-    * JDK8(ver_1.8.0)
-    * Tomcat(ver_8.0)
-    * MySQL Workbench 8.0 CE
-  + SCM(버전관리) :
-    * Git(GitHub)
+  - <B>기술스택</B> :
+     + <B>Language</B> :
+       * Java
+       * JSP
+       * Javascript
+     + <B>Framework</B> :
+       * Spring
+     + <B>Tool</B> : 
+       * Eclipse-jee-mars
+       * JDK8(ver_1.8.0)
+       * Tomcat(ver_8.0)
+       * MySQL Workbench 8.0 CE
+     + <B>SCM(버전관리)</B> :
+       * Git(GitHub)
 
 <Br>
    
