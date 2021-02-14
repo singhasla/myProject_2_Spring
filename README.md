@@ -1,6 +1,6 @@
 # 개인프로젝트2
 
-## 소개 : # (Model2패턴 SPRING)
+## 소개 : # (Model2패턴 스프링프레임워크)
 ### <a href="https://github.com/singhasla/ITwill_myProject/blob/master/Portfolio1.pdf">Portfolio 보기</a>
   
   - 간단소개 : 인터넷을 통한 영화 미디어 콘텐츠를 제공하는 서비스 사이트입니다.
