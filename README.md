@@ -1,4 +1,4 @@
-# 개인프로젝트1
+# 개인프로젝트2
 
 ## 소개 : # (Model2패턴 SPRING)
 ### <a href="https://github.com/singhasla/ITwill_myProject/blob/master/Portfolio1.pdf">Portfolio 보기</a>
