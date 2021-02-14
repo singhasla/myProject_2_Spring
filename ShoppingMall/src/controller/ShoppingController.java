@@ -260,4 +260,23 @@ public class ShoppingController {
 		
 		return new ModelAndView(new RedirectView("index.do"));
 	}
+	
+	//소개
+	@RequestMapping("/stanlyinfo.do")
+	public ModelAndView stanlyInfo(String name){
+
+		String[] imgarr = {"stanlycenterinfo","stanlycenterhistory1","stanlycenterglobal","stanlycentercompany"};
+		
+		if(name==null){
+			name="0";
+		}
+			
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("imgname",imgarr[Integer.parseInt(name)]);
+		mav.addObject("center","StanlyInfoMain.jsp");
+		mav.addObject("left","StanlyInfoLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		
+		return mav;
+	}
 }
