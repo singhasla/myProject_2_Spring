@@ -279,4 +279,22 @@ public class ShoppingController {
 		
 		return mav;
 	}
+	
+	//사용법
+	@RequestMapping("tooluse.do")
+	public ModelAndView toolUse(String name){
+		String [] imgarr={"tool1","tool2","tool3","tool4","tool5", "tool6","tool7","tool8-1","tool9","tool10"};
+
+		if(name==null){
+			name ="0";
+		}
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("imgname", imgarr[Integer.parseInt(name)]);
+		mav.addObject("center", "ToolUseCenter.jsp");
+		mav.addObject("left", "ToolUseLeft.jsp");		
+		mav.setViewName("ShoppingMain");
+		return mav;	
+
+	}
 }
