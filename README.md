@@ -1,27 +1,23 @@
 # 개인프로젝트2
 
-## 소개 : # (Model2패턴 스프링프레임워크)
+## 소개 : OpenOffice (Model2패턴)
 ### <a href="https://github.com/singhasla/ITwill_myProject/blob/master/Portfolio1.pdf">Portfolio 보기</a>
-  
-  - 간단소개 : 인터넷을 통한 영화 미디어 콘텐츠를 제공하는 서비스 사이트입니다.
-
+   - OpenOffice(공유오피스)는 근무환경이 적합하지 않은 이용자들에게 원활한 업무를 제공할 수 있도록<br>
+   입주신청을 할 수 있는 웹사이트입니다.
+      
   - 기술스택 :
-  + <b>Language :</b> 
+  + <B>Language : </B>
     * Java
     * JSP
     * Javascript
-    
-  + ### Framework :
-    * Spring
-    
-  + ### Tool : 
+    * Jquery
+  + Tool : 
     * Eclipse-jee-mars
     * JDK8(ver_1.8.0)
     * Tomcat(ver_8.0)
     * MySQL Workbench 8.0 CE
-  + ### SCM(버전관리) :
+  + SCM(버전관리) :
     * Git(GitHub)
-
 
 <Br>
    
