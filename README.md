@@ -5,21 +5,21 @@
   
   - 간단소개 : 인터넷을 통한 영화 미디어 콘텐츠를 제공하는 서비스 사이트입니다.
 
-  - 기술스택 :
-  + Language : 
+  - ### 기술스택 :
+  + ### Language : 
     * Java
     * JSP
     * Javascript
     
-  + Framework :
+  + ### Framework :
     * Spring
     
-  + Tool : 
+  + ### Tool : 
     * Eclipse-jee-mars
     * JDK8(ver_1.8.0)
     * Tomcat(ver_8.0)
     * MySQL Workbench 8.0 CE
-  + SCM(버전관리) :
+  + ### SCM(버전관리) :
     * Git(GitHub)
 
 
