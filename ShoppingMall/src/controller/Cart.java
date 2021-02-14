@@ -41,4 +41,9 @@ public class Cart {
 			}
 		}
 	}
+
+	public void clearCart() {
+
+		itemlist.removeAll(itemlist);
+	}
 }

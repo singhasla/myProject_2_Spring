@@ -202,4 +202,62 @@ public class ShoppingController {
 		
 		return mav;
 	}
+	
+	//상품 바로구매
+	@RequestMapping("/sutoolbuy.do")
+	public ModelAndView sutoolBuy(SuCartBean subean, HttpSession session){
+		
+		ModelAndView mav = new ModelAndView();
+
+		MemberBean mbean = (MemberBean)session.getAttribute("mbean");
+		
+		if(mbean==null){
+			mav.addObject("center","LoginForm.jsp");
+			mav.addObject("left","SujakLeft.jsp");
+			mav.setViewName("ShoppingMain");
+		} else {
+			mav.addObject("subean",subean);
+			mav.addObject("center","SutoolBuy.jsp");
+			mav.addObject("left","SujakLeft.jsp");
+			mav.setViewName("ShoppingMain");
+		}
+		
+		return mav;
+	}
+	
+	//카트에 담긴 상품 구매
+	@RequestMapping("/sucartbuy.do")
+	public ModelAndView sucartBuy(SuCartBean subean, HttpSession session){
+		
+		ModelAndView mav = new ModelAndView();
+
+		MemberBean mbean = (MemberBean)session.getAttribute("mbean");
+		
+		if(mbean==null){
+			mav.addObject("center","LoginForm.jsp");
+			mav.addObject("left","SujakLeft.jsp");
+			mav.setViewName("ShoppingMain");
+		} else {
+			
+			Cart cart = (Cart)session.getAttribute("cart");
+			
+			mav.addObject("cart",cart);
+			mav.addObject("subean",subean);
+			mav.addObject("center","SuCartBuy.jsp");
+			mav.addObject("left","SujakLeft.jsp");
+			mav.setViewName("ShoppingMain");
+		}
+		
+		return mav;
+	}
+		
+	//카트 물품 비우기
+	@RequestMapping("/cartalldel.do")
+	public ModelAndView cartallDel(HttpSession session){
+		
+		Cart cart = (Cart)session.getAttribute("cart");
+		cart.clearCart();
+		
+		return new ModelAndView(new RedirectView("index.do"));
+	}
 }

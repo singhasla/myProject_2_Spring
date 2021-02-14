@@ -14,7 +14,13 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<bean id="sutoolcart" name="/sutoolcart.do" class="controller.ShoppingController" 
 			p:shoppingDao-ref="shoppingDao"></bean>
 	<bean id="sucartdel" name="/sucartdel.do" class="controller.ShoppingController" 
-			p:shoppingDao-ref="shoppingDao"></bean>		
+			p:shoppingDao-ref="shoppingDao"></bean>
+	<bean id="sutoolbuy" name="/sutoolbuy.do" class="controller.ShoppingController" 
+			p:shoppingDao-ref="shoppingDao"></bean>
+	<bean id="sucartbuy" name="/sucartbuy.do" class="controller.ShoppingController" 
+			p:shoppingDao-ref="shoppingDao"></bean>
+	<bean id="cartalldel" name="/cartalldel.do" class="controller.ShoppingController" 
+			p:shoppingDao-ref="shoppingDao"></bean>
 	<bean id="joinform" name="/joinform.do" class="controller.ShoppingController" 
 			p:shoppingDao-ref="shoppingDao"></bean>
 	<bean id="joinproc" name="/joinproc.do" class="controller.ShoppingController" 
@@ -29,6 +35,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
 		<property name="suffix" value=".jsp"/>
+		<property name="contentType" value="text/html; charset=UTF-8"/>
 	</bean>
 
 	<bean id="shoppingDao" class="model.ShoppingDAO" p:dataSource-ref="dataSource"/>
@@ -38,7 +45,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="url">
-			<value>jdbc:mysql://localhost:3306/myproj2</value>
+			<value>jdbc:mysql://localhost:3306/myproj2?characterEncoding=UTF-8</value>
 		</property>
 		<property name="username">
 			<value>root</value>
