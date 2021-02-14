@@ -6,7 +6,7 @@
   - 간단소개 : 인터넷을 통한 영화 미디어 콘텐츠를 제공하는 서비스 사이트입니다.
 
   - ### 기술스택 :
-  + ### Language : 
+  + <b>Language :</b> 
     * Java
     * JSP
     * Javascript
