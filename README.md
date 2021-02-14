@@ -6,7 +6,7 @@
    입주신청을 할 수 있는 웹사이트입니다.
       
   - 기술스택 :
-  + <B>Language : </B>
+  + Language :
     * Java
     * JSP
     * Javascript
