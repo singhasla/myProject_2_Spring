@@ -7,6 +7,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<bean id="index" name="/index.do" class="controller.ShoppingController"></bean>
+	
 	<bean id="sujak" name="/sujak.do" class="controller.ShoppingController" 
 			p:shoppingDao-ref="shoppingDao"></bean>
 	<bean id="suinfo" name="/suinfo.do" class="controller.ShoppingController" 
