@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import model.BoardBean;
 import model.MemberBean;
 import model.ShoppingDAO;
 import model.SuBean;
@@ -324,4 +325,139 @@ public class ShoppingController {
 		return new ModelAndView("downloadView","downloadFile", downloadfile);
 
 	}
+	
+	//전체 게시글
+	@RequestMapping("/board.do")
+	public ModelAndView boardList(String pageNum){
+		
+		ModelAndView mav = new ModelAndView();
+		int pageSize=10;
+		
+		int count =0;//전체 글 갯수
+		int number =0;//현재 페이지 넘버
+		
+		if(pageNum == null){
+			pageNum="1";
+		}
+
+		int currentPage  = Integer.parseInt(pageNum);
+
+		//게시글 총 갯수
+		count = shoppingDao.getCount();
+	
+		int startRow = (currentPage -1)*pageSize+1;
+		int endRow = currentPage*pageSize;
+
+		List<BoardBean> vbean=null;
+		if(count > 0 ){
+			//10개 기준으로 테이블에서 읽어오기
+			vbean = shoppingDao.getAllContent(startRow-1 , endRow);		
+			//테이블에 표시할 번호
+			number = count -(currentPage -1) * pageSize;
+			
+		}
+		//BoardList.jsp
+		mav.addObject("vbean", vbean);
+		mav.addObject("number", number);
+		mav.addObject("pageSize", pageSize);
+		mav.addObject("count", count);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("center", "BoardList.jsp");
+		mav.addObject("left", "BoardLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		return mav;	
+		
+	}
+	
+	@RequestMapping("/boardwrite.do")
+	public ModelAndView boardWrite(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("center", "BoardWrite.jsp");
+		mav.addObject("left", "BoardLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		return mav;	
+	}
+	
+	@RequestMapping("/boardwriteproc.do")
+	public ModelAndView boardWriteProc(BoardBean bean){
+			
+		shoppingDao.boardInsert(bean);
+		
+		return new ModelAndView(new RedirectView("board.do"));
+	}
+ 	
+	@RequestMapping("/boardinfo.do")
+	public ModelAndView boardInfo(int num){
+		
+		ModelAndView mav = new ModelAndView();
+
+		BoardBean bean = shoppingDao.getOneContent(num);
+		
+		mav.addObject("bean", bean);
+		mav.addObject("center", "BoardInfo.jsp");
+		mav.addObject("left", "BoardLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		return mav;	
+		
+	}
+	
+	@RequestMapping("/boardrewrite.do")
+	public ModelAndView boardRewrite(BoardBean bean){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("bean", bean);
+		mav.addObject("center", "BoardRewrite.jsp");
+		mav.addObject("left", "BoardLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		return mav;	
+	}
+	
+	@RequestMapping("/boardrewriteproc.do")
+	public ModelAndView boardrewriteProc(BoardBean bean){
+		
+		shoppingDao.reWriteboard(bean);
+		return new ModelAndView(new RedirectView("board.do"));
+	}
+	
+	@RequestMapping("/boardupdate.do")
+	public ModelAndView boardUpdate(BoardBean bean){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("bean", bean);
+		mav.addObject("center", "BoardUpdate.jsp");
+		mav.addObject("left", "BoardLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		return mav;	
+	}
+	
+	@RequestMapping("/boardupdateproc.do")
+	public ModelAndView boardupdateProc(BoardBean bean){
+		
+		shoppingDao.boardUpdate(bean);
+		return new ModelAndView(new RedirectView("board.do"));
+	}
+	
+	@RequestMapping("/boarddelete.do")
+	public ModelAndView boardDelete(int num){
+	
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("num", num);
+		mav.addObject("center", "BoardDelete.jsp");
+		mav.addObject("left", "BoardLeft.jsp");
+		mav.setViewName("ShoppingMain");
+		return mav;
+	
+	}
+
+	@RequestMapping("/boarddeleteproc.do")
+	public ModelAndView boarddeleteProc(BoardBean bean){
+	
+		shoppingDao.boardDelete(bean);
+		return new ModelAndView(new RedirectView("board.do"));
+	}
+	
 }

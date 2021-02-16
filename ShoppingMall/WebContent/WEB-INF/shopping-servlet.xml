@@ -45,6 +45,25 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	</bean>
 	<bean id="downloadView" class="controller.DownloadView"></bean>
 	
+	
+	<bean id="board" name="/board.do" class="controller.ShoppingController" 
+			p:shoppingDao-ref="shoppingDao"></bean>
+	<bean id="boardwrite" name="/boardwrite.do"  class="controller.ShoppingController" />  
+	<bean id="boardwriteproc" name="/boardwriteproc.do"  class="controller.ShoppingController"
+ 	p:shoppingDao-ref="shoppingDao" /> 	
+	<bean id="boardinfo" name="/boardinfo.do"  class="controller.ShoppingController"
+ 	p:shoppingDao-ref="shoppingDao" /> 	 	
+	<bean id="boardrewrite" name="/boardrewrite.do"  class="controller.ShoppingController"/>
+	<bean id="boardrewriteproc" name="/boardrewriteproc.do"  class="controller.ShoppingController"
+ 	p:shoppingDao-ref="shoppingDao" /> 	 	
+	<bean id="boardupdate" name="/boardupdate.do"  class="controller.ShoppingController"/>
+	<bean id="boardupdateproc" name="/boardupdateproc.do"  class="controller.ShoppingController"
+ 	p:shoppingDao-ref="shoppingDao" /> 	
+	<bean id="boarddelete" name="/boarddelete.do"  class="controller.ShoppingController"/> 	
+	<bean id="boarddeleteproc" name="/boarddeleteproc.do"  class="controller.ShoppingController"
+ 	p:shoppingDao-ref="shoppingDao" />
+			
+			
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
 		<property name="suffix" value=".jsp"/>
