@@ -36,6 +36,14 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<bean id="stanlyinfo" name="/stanlyinfo.do"  class="controller.ShoppingController" />
 	<bean id="tooluse" name="/tooluse.do"  class="controller.ShoppingController" />
 	
+	<bean id="download" name="/download.do"  class="controller.ShoppingController" />
+	<bean id="downfile" name="/downfile.do"  class="controller.ShoppingController" />
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order">
+			<value>0</value>
+		</property>
+	</bean>
+	<bean id="downloadView" class="controller.DownloadView"></bean>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

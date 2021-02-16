@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -283,6 +284,7 @@ public class ShoppingController {
 	//사용법
 	@RequestMapping("tooluse.do")
 	public ModelAndView toolUse(String name){
+		
 		String [] imgarr={"tool1","tool2","tool3","tool4","tool5", "tool6","tool7","tool8-1","tool9","tool10"};
 
 		if(name==null){
@@ -295,6 +297,31 @@ public class ShoppingController {
 		mav.addObject("left", "ToolUseLeft.jsp");		
 		mav.setViewName("ShoppingMain");
 		return mav;	
+
+	}
+	
+	@RequestMapping("download.do")
+	public ModelAndView downLoad(){
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("center", "DownCenter.jsp");
+		mav.addObject("left", "DownLeft.jsp");		
+		mav.setViewName("ShoppingMain");
+		return mav;	
+
+	}
+	
+	//다운로드 요청
+	@RequestMapping("downfile.do")
+	public ModelAndView downFile(int no){
+		
+		String [] filename={"m0.pdf", "m1.pdf", "m2.pdf"};
+
+		String path="D:/git/myProject_2_Spring/ShoppingMall/WebContent/downfile/";
+
+		File downloadfile = new File(path + filename[no]);
+		
+		return new ModelAndView("downloadView","downloadFile", downloadfile);
 
 	}
 }
