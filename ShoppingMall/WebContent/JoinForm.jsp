@@ -65,7 +65,7 @@
 				</tr>
 				<tr height="40">
 					<td align="right" width="180">
-						<font color="white" size="3">기념일</font>
+						<font color="white" size="3">생년월일</font>
 					</td>
 					<td width="220">
 						<input type="date" name="memdate" size="20">
