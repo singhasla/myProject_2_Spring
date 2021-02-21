@@ -1,7 +1,7 @@
 # 개인프로젝트2
 
 ## 소개 : 공구 구매사이트 (Model2패턴)
-### <!-- <a href="https://github.com/singhasla/ITwill_myProject/blob/master/Portfolio1.pdf">Portfolio 보기</a> -->
+### <!-- <a href="개인프로젝트2.pdf">Portfolio 보기</a> -->
    - STANLEY는 공구를 구매할 수 있는 웹사이트입니다.
       
   - <B>기술스택</B> :
